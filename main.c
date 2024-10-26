@@ -31,7 +31,7 @@ int cadastroAluno(){
 int menu(){
     int escolha;
 
-    printf("\n\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n");
     printf("========== SISTEMA DE NOTAS ==========");
     printf("1- Cadastrar novo aluno");
     printf("2- Media do aluno especifico");
