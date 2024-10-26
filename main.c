@@ -40,6 +40,21 @@ int cadastroAluno(){
     }
 }
 
+int calculaMedia(){
+    int idDigitado;
+    float mediaAluno;
+    printf("Digite o ID do aluno: ");
+    scanf("%d", &idDigitado);
+
+    mediaAluno = (notas1[idDigitado-1] + notas2[idDigitado-1] + notas3[idDigitado-1])/3;
+    
+    printf("\nAluno %d: %s", id[idDigitado-1], alunos[idDigitado-1]);
+
+    printf("\n \t \tNota 1: %.2f", mediaAluno);
+    printf("\nMedia: %.2f  \tNota 2: %.2f", notas2[idDigitado-1],mediaAluno);
+    printf("\n \t \tNota 3: %.2f", notas3[idDigitado-1]);
+}
+
 // Funcao para Menu com laço de repetição
 int menu(){
     int escolha;
@@ -63,6 +78,7 @@ int menu(){
     }
     else if(escolha == 2){
         // Funcao Media de Aluno
+        calculaMedia();
     }
     else if(escolha == 3){
         // Funcao Relatorio de Notas
