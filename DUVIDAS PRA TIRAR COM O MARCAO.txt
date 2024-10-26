@@ -1,0 +1,3 @@
+Duvida:
+1- "o sistema deve solicitar um id" - O sistema deve designar um id para cada aluno ou solicitar o id para o usuario ?
+E se tiver que solicitar, terá que fazer o controle para nenhum id se repitir ?
