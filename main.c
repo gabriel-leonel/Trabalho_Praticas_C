@@ -38,6 +38,7 @@ int cadastroAluno(){
         printf("Nota 3: %.2f\n", notas3[i]);
         printf("\n");
     }
+    menu();
 }
 
 int calculaMedia(){
