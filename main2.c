@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-char nomeAlunos[30][20]; // Armazena o nomes dos alunos de ate 20 caracteres
-float infoAluno[30][4];  // Indice 0 = ID, Indice 1,2,3 = Notas 1,2,3
-int alunosCadastrados=0;
+int menu();
 
-int cadastroAluno(int alunosCadastrados2)
-{
+char nomeAlunos[30][20]; 
+float infoAluno[30][4];  
+int alunosCadastrados = 0;
+
+int cadastroAluno(int alunosCadastrados) {
     alunosCadastrados++;
-    if (alunosCadastrados >= 30)
-    {
-        printf("Quantidade maxima de alunos cadastrada.");
-    }
-    else
-    {
-        // input de informacoes
-        for (int i = 0; i < alunosCadastrados2; i++)
-        {
+    if (alunosCadastrados >= 30) {
+        printf("Quantidade máxima de alunos cadastrados.\n");
+        menu();
+    } else {
+        for (int i = 0; i < alunosCadastrados; i++) {
             printf("Digite o nome do aluno: ");
             scanf("%s", nomeAlunos[i]);
             printf("Digite o ID do aluno: ");
@@ -28,33 +25,35 @@ int cadastroAluno(int alunosCadastrados2)
             scanf("%f", &infoAluno[i][3]);
         }
 
-        // output das mesmas informacoes
-        for (int i = 0; i < alunosCadastrados2; i++)
-        {
-            printf("Nome: %s \n", nomeAlunos[i]);
+        for (int i = 0; i < alunosCadastrados; i++) {
+            printf("\n\nNome: %s \n", nomeAlunos[i]);
             printf("ID: %.f \n", infoAluno[i][0]);
             printf("Nota1: %.2f\n", infoAluno[i][1]);
             printf("Nota2: %.2f\n", infoAluno[i][2]);
             printf("Nota3: %.2f\n", infoAluno[i][3]);
         }
+        menu();
     }
 }
 
-void calcularMedia()
-{
+void calcularMedia() {
     int id_digitado = 0;
 
     printf("Digite o ID do aluno:");
     scanf("%d", &id_digitado);
 
-    for (int i = 0; i < alunosCadastrados; i++)
-    {
+    for (int i = 0; i < alunosCadastrados; i++) {
+        if (infoAluno[i][0] == id_digitado) {
+            float media = (infoAluno[i][1] + infoAluno[i][2] + infoAluno[i][3]) / 3.0;
+            printf("A media do aluno com ID %d e: %.2f\n", id_digitado, media);
+            return;
+        }
     }
-    printf("%d", infoAluno[id_digitado][0]);
+
+    printf("Aluno nao encontrado.\n");
 }
 
-void menu()
-{
+int menu() {
     int escolha;
 
     printf("\nO que deseja fazer?");
@@ -64,31 +63,19 @@ void menu()
     printf("\n4- Sair \n");
 
     scanf("%d", &escolha);
-    if (escolha == 1)
-    {
+    if (escolha == 1) {
         cadastroAluno(alunosCadastrados);
-    }
-    else if (escolha == 2)
-    {
-        // Funcao Media de Aluno
+    } else if (escolha == 2) {
         calcularMedia();
-    }
-    else if (escolha == 3)
-    {
-        // Funcao Relatorio de Notas
-    }
-    else if (escolha == 4)
-    {
-    }
-    else
-    {
-        printf("Opcao invalida, fechando o programa");
+    } else if (escolha == 3) {
+        printf("Relatorio de notas geral (a ser implementado).\n");
+    } else if (escolha == 4) {
+        printf("Saindo do programa.\n");
+    } else {
+        printf("Opcao invalida, fechando o programa.\n");
     }
 }
 
-int main()
-{
-    cadastroAluno(alunosCadastrados);
+int main() {    
     menu();
-    calcularMedia();
 }
