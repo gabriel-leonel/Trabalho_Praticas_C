@@ -1,6 +1,8 @@
 # Trabalho_Praticas_C
 Trabalho para a disciplina de práticas de programação, professor Marcos
 
+Alunos: Gabriel Leonel Santos, Caio Cunha Neves, Joao Mateus Benedito da Cruz, Jhonatan Novais de Macedo, Gabrielly Carolina de Castro Paula, Lucas Winicius da Silva
+ 
 Desenvolver uma aplicação de gerenciamento de notas de alunos de uma turma:
 
 Funcionalidades:
